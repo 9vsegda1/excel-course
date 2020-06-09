@@ -51,6 +51,12 @@ class Dom {
   getCoords() {
     return this.$el.getBoundingClientRect()
   }
+  getStyles(styles =[]) {
+    return styles.reduce((res, s) => {
+      res[s] = this.$el.style[s]
+      return res
+    }, {})
+  }
   get data() {
     return this.$el.dataset
   }
@@ -66,6 +72,14 @@ class Dom {
         .forEach(key => {
           this.$el.style[key] = styles[key]
         })
+  }
+
+  attr(name, value) {
+    if (value) {
+      this.$el.setAttribute(name, value)
+      return this
+    }
+    return this.$el.getAttribute(name)
   }
   id(parse) {
     if (parse) {
@@ -85,7 +99,7 @@ class Dom {
   }
 
   text(t) {
-    if (typeof t === 'string') {
+    if (typeof t !== 'undefined') {
       this.$el.textContent = t
       return this
     }
