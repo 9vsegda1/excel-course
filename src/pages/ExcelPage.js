@@ -5,7 +5,7 @@ import {normalizeInitialState} from '@/redux/initialState'
 import {rootReducer} from '@/redux/rootReducer'
 import {Excel} from '@/components/excel/Excel'
 import {Table} from '@/components/table/Table'
-import {createStore} from '@core/createStore'
+import {createStore} from '@core/store/createStore'
 import {storage, debounce} from '@core/utils'
 import {Page} from '@core/Page';
 
